@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tabterminal"
+version = "0.1.0"
+description = "A terminal shell with AI-powered command completion and prediction, supporting Windows and Linux"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+keywords = ["terminal", "shell", "ai", "autocomplete", "cli"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Topic :: System :: Shells",
+]
+dependencies = [
+    "prompt_toolkit>=3.0",
+    "openai>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-mock>=3.0",
+]
+
+[project.scripts]
+tabterminal = "tabterminal.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["tabterminal*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
